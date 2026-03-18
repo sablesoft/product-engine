@@ -21,6 +21,7 @@ Always read:
 - `state/runtime.yaml`
 - `assets/current_scene_template.md`
 - `assets/event_template.md`
+- `assets/session_log_template.md`
 - `assets/location_card_template.md`
 - `assets/quest_card_template.md`
 - `assets/faction_card_template.md`
@@ -34,6 +35,7 @@ Always read:
 - `adventures/<active_slug>/state/campaign_state.yaml`
 - `adventures/<active_slug>/state/facts.yaml`
 - `adventures/<active_slug>/state/flags.yaml`
+- current session log in `adventures/<active_slug>/sessions/` if present
 - recent files in `adventures/<active_slug>/events/`
 - directly relevant NPC, location, quest, faction, and race cards
 
@@ -97,6 +99,7 @@ After every significant action:
     - `adventures/<active_slug>/scenes/current_scene.md`
     - `adventures/<active_slug>/state/campaign_state.yaml`
     - `adventures/<active_slug>/state/flags.yaml` when needed
+    - a readable session log under `adventures/<active_slug>/sessions/` by appending a short narrative beat for the turn
 3. If a new important entity appears, create its card using the relevant assets and established adventure card structure:
     - NPC
     - location
@@ -131,3 +134,4 @@ Use zero-padded increasing numbers:
 - Do not retcon established facts casually.
 - Keep the reply vivid but not bloated.
 - Always leave the player with a sense of actionable next steps.
+- The session log should preserve the adventure as a readable story, not only as state transitions.

@@ -16,6 +16,7 @@ Use repository skills for the main workflows:
 
 - engine-level routing state lives in `state/runtime.yaml`
 - concrete adventure data lives only in `adventures/<active_slug>/`
+- readable story recap should live in `adventures/<active_slug>/sessions/`
 - skill assets in `.agents/skills/.../assets/` define the format of generated cards
 - adventure files are more important than improvisation
 

@@ -94,6 +94,7 @@ If the user clearly selects an option and possibly adds preferences:
    - 3 location cards
    - 2 active quest cards
    - 1 initial event file
+   - 1 readable session log file that can be continued during play
 5. Do not create player character yet.
 6. Update `state/runtime.yaml` so that:
    - `active_adventure_slug: <adventure_slug>`
