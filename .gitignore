@@ -1,0 +1,4 @@
+/state/runtime.yaml
+/adventures/*
+!/adventures/.gitkeep
+!/adventures/.gitignore

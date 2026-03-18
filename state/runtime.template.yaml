@@ -1,0 +1,18 @@
+phase: bootstrap_adventure
+active_adventure_slug: null
+user_language: ru
+campaign_content_language: en
+
+adventure:
+  options_ready: false
+  selected_option: null
+
+character:
+  options_ready: false
+  selected_option: null
+
+scene:
+  initialized: false
+
+session:
+  turn: 0

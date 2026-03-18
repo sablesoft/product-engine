@@ -1,0 +1,3 @@
+flags:
+  # boolean or state flags used by logic
+  example_flag: false
