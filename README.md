@@ -7,7 +7,7 @@ It separates:
 - engine behavior
 - product contracts
 - product-local rules and runtimes
-- workspace content and play state
+- workspace content and product state
 
 ## What lives here
 
