@@ -62,6 +62,11 @@ Concrete content may live in nested repositories:
 
 This keeps engine evolution separate from real content.
 
+## Temporary Files
+
+Use the project-local `tmp/` directory for temporary artifacts created during work in this repository.
+Prefer it over system temp directories when the output may need to be inspected from the repo root.
+
 ## First places to read
 
 - [AGENTS.md](AGENTS.md)
