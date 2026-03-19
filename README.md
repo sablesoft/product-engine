@@ -67,6 +67,31 @@ This keeps engine evolution separate from real content.
 Use the project-local `tmp/` directory for temporary artifacts created during work in this repository.
 Prefer it over system temp directories when the output may need to be inspected from the repo root.
 
+## Terminal Links
+
+The engine provides shared terminal-link helpers that any product can use.
+
+- generic file links:
+  - [scripts/file-link](scripts/file-link)
+  - [scripts/support/terminal_file_link.rb](scripts/support/terminal_file_link.rb)
+- image-specific links with Kitty-aware handling:
+  - [scripts/image-link](scripts/image-link)
+  - [scripts/support/terminal_image_link.rb](scripts/support/terminal_image_link.rb)
+
+Use them like this:
+
+```bash
+ruby scripts/file-link --path path/to/file.md
+ruby scripts/image-link --path path/to/image.png
+```
+
+Behavior:
+
+- both scripts emit clickable OSC 8 `file://` links
+- on macOS they also print a ready `open ...` fallback command
+- `image-link` is the image-specific subset of `file-link`
+- in Kitty, `image-link` also maintains compatible `open_actions` so image clicks can open with `kitten icat`
+
 ## First places to read
 
 - [AGENTS.md](AGENTS.md)

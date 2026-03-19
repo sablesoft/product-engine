@@ -1,0 +1,36 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+require_relative "support/terminal_file_link"
+
+def usage
+  <<~TEXT
+    Usage:
+      ruby scripts/file-link --path /absolute/or/relative/path [--kind auto|image|file]
+  TEXT
+end
+
+path = nil
+kind = "auto"
+argv = ARGV.dup
+
+until argv.empty?
+  flag = argv.shift
+  case flag
+  when "--path" then path = argv.shift
+  when "--kind" then kind = argv.shift
+  when "-h", "--help"
+    puts usage
+    exit 0
+  else
+    warn "Unknown option: #{flag}\n\n#{usage}"
+    exit 64
+  end
+end
+
+if path.nil? || path.empty?
+  warn "Missing required option --path\n\n#{usage}"
+  exit 64
+end
+
+puts TerminalFileLink.file_link_lines(path: path, kind: kind)

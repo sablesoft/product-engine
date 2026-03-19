@@ -92,6 +92,7 @@ Use:
 - `dev-overview`
 - `dev-refactor`
 - `dev-audit`
+- `dev-file-link`
 - `dev-bootstrap-skill`
 - `dev-bootstrap-product`
 - `dev-bootstrap-mode`
@@ -101,6 +102,7 @@ Routing hints:
 - "how is this structured", "what do we have", "what is missing" → overview
 - "update", "rewrite", "add", "split", "introduce" → refactor
 - "check", "audit", "are there issues", "is everything consistent" → audit
+- "show the file link", "give me a clickable path", "open this file from the terminal" → file-link
 - "create skill", "add skill", "new workflow" → bootstrap-skill
 - "create product", "add product", "bootstrap product" → bootstrap-product
 - "create mode", "add mode", "bootstrap mode" → bootstrap-mode
