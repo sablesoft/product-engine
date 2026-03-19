@@ -11,11 +11,11 @@ It separates:
 
 ## What lives here
 
-- engine instructions and policies in [AGENTS.md](/Users/roman/PhpstormProjects/home/product-engine/AGENTS.md)
-- engine rules in [.agents/rules](/Users/roman/PhpstormProjects/home/product-engine/.agents/rules)
-- engine-native skills in [.agents/skills](/Users/roman/PhpstormProjects/home/product-engine/.agents/skills)
-- engine runtime in [state/runtime.yaml](/Users/roman/PhpstormProjects/home/product-engine/state/runtime.yaml)
-- products in [products](/Users/roman/PhpstormProjects/home/product-engine/products)
+- engine instructions and policies in [AGENTS.md](AGENTS.md)
+- engine rules in [.agents/rules](.agents/rules)
+- engine-native skills in [.agents/skills](.agents/skills)
+- engine runtime in [state/runtime.yaml](state/runtime.yaml)
+- products in [products](products)
 
 ## Layer model
 
@@ -38,7 +38,7 @@ Do not mix them.
 
 ## Products
 
-Products live under [products](/Users/roman/PhpstormProjects/home/product-engine/products).
+Products live under [products](products).
 
 Each product may define:
 
@@ -64,11 +64,11 @@ This keeps engine evolution separate from real content.
 
 ## First places to read
 
-- [AGENTS.md](/Users/roman/PhpstormProjects/home/product-engine/AGENTS.md)
-- [.agents/rules/runtime_rules.md](/Users/roman/PhpstormProjects/home/product-engine/.agents/rules/runtime_rules.md)
-- [.agents/rules/product_rules.md](/Users/roman/PhpstormProjects/home/product-engine/.agents/rules/product_rules.md)
-- [.agents/rules/layer_rules.md](/Users/roman/PhpstormProjects/home/product-engine/.agents/rules/layer_rules.md)
-- [.agents/skills/dev-bootstrap-product/SKILL.md](/Users/roman/PhpstormProjects/home/product-engine/.agents/skills/dev-bootstrap-product/SKILL.md)
+- [AGENTS.md](AGENTS.md)
+- [.agents/rules/runtime_rules.md](.agents/rules/runtime_rules.md)
+- [.agents/rules/product_rules.md](.agents/rules/product_rules.md)
+- [.agents/rules/layer_rules.md](.agents/rules/layer_rules.md)
+- [.agents/skills/dev-bootstrap-product/SKILL.md](.agents/skills/dev-bootstrap-product/SKILL.md)
 
 ## Status
 
