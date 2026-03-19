@@ -47,6 +47,13 @@ One-shot override:
 
 - `@dev: ...`
 
+One-shot override semantics:
+
+- a one-shot override applies only to the current user request
+- a one-shot override has higher priority than explicit mode switch and stored runtime mode
+- a one-shot override must not update `state/runtime.yaml`
+- after the request is handled, the previously active runtime mode remains unchanged
+
 ---
 
 ## Mode resolution
@@ -113,6 +120,8 @@ Follow engine policy from:
 - `.agents/rules/skill_rules.md`
 - `.agents/rules/naming_rules.md`
 - `.agents/rules/architecture_rules.md`
+
+If an active product defines `products/<product_slug>/rules/`, follow that product rule layer in addition to engine rules.
 
 ---
 

@@ -37,6 +37,15 @@ If something defines:
 
 If something defines:
 
+- product-specific invariants
+- product canon boundaries
+- product runtime boundaries
+- product mode constraints
+
+→ it belongs in the product rules layer
+
+If something defines:
+
 - one concrete domain instance
 - its working content
 - its local history or progress

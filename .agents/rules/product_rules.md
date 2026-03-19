@@ -4,13 +4,15 @@
 
 - a product is a first-class engine extension unit
 - each product lives under `products/<product_slug>/`
-- each product owns its own modes, skills, assets, and workspaces
+- each product owns its own rules, modes, skills, assets, runtime, and workspaces
 
 ## Required product contract
 
 Each product must define:
 
 - `products/<product_slug>/product.yaml`
+- `products/<product_slug>/AGENTS.md`
+- `products/<product_slug>/rules/`
 
 The product contract may define:
 
@@ -61,7 +63,7 @@ The product contract may define:
 
 ## Product-local rules
 
-A product may define product-local rules under:
+A product must define product-local rules under:
 - `products/<product_slug>/rules/`
 
 Product-local rules may constrain:
@@ -69,8 +71,11 @@ Product-local rules may constrain:
 - product workspaces
 - product-local naming
 - product-local workflows
+- product runtime usage
+- product canon boundaries
 
 Product-local rules must not override engine root invariants.
+Product-local rules are the product-level source of truth for domain invariants.
 
 ## Mode ownership
 

@@ -18,6 +18,13 @@ Runtime stores only engine-level context.
 - engine runtime is the source of truth only for current engine context
 - engine runtime is not the source of truth for resumable product work context
 
+## One-shot override
+
+- a one-shot override applies mode selection only to the current request
+- a one-shot override has priority over stored runtime mode and persisted product mode
+- a one-shot override must not write its temporary mode into engine runtime
+- a one-shot override must not write its temporary mode into product runtime unless the user explicitly performs a persistent mode switch
+
 ## Allowed fields
 
 - mode
