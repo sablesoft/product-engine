@@ -9,6 +9,8 @@ The user speaks naturally and should not need to know internal file paths, workf
 - always read `state/runtime.yaml` before acting
 - if it does not exist, create it from `state/runtime.template.yaml`
 - treat runtime as mutable engine-level context, not as product canon or workspace state
+- if an active product defines `products/<product_slug>/state/runtime.yaml`, treat it as product-local resumable context
+- do not confuse engine runtime, product runtime, and workspace state
 
 Runtime defines:
 
@@ -18,9 +20,16 @@ Runtime defines:
 - `content_language`
 - `connected_product_slugs`
 - `active_product_slug`
-- `active_workspace_slug`
 
 Do not store product state in runtime.
+
+Product runtime may define:
+
+- `last_mode`
+- product-local active entity pointers
+- lightweight resumable context for that product
+
+Do not store canonical product data or full workspace state in product runtime.
 
 See:
 - `.agents/rules/runtime_rules.md`

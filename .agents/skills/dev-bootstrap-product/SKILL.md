@@ -11,6 +11,7 @@ This includes:
 - defining the product slug and responsibility
 - creating the product scaffold
 - creating the product manifest
+- creating product-local runtime files
 - preparing product-local folders for modes, skills, assets, and workspaces
 - suggesting minimal engine integration updates when needed
 
@@ -26,6 +27,8 @@ This includes:
 - existing `.agents/skills/**`
 - existing `products/**`
 - `./assets/product_template.yaml`
+- `./assets/product_runtime_template.yaml`
+- `./assets/product_gitignore_template`
 - `./assets/product_structure_checklist.md`
 
 # Behavior
@@ -41,13 +44,19 @@ This includes:
 4. Create `products/<product_slug>/`.
 5. Create the minimal product scaffold:
     - `products/<product_slug>/product.yaml`
+    - `products/<product_slug>/.gitignore`
     - `products/<product_slug>/modes/`
     - `products/<product_slug>/skills/`
     - `products/<product_slug>/assets/`
+    - `products/<product_slug>/state/`
+    - `products/<product_slug>/state/runtime.template.yaml`
+    - `products/<product_slug>/state/runtime.yaml`
     - `products/<product_slug>/workspaces/`
 6. Populate `product.yaml` from the local template with only the fields needed to describe the product contract.
-7. Add product-local notes or placeholder files only when they clearly help the next step.
-8. Update engine-level routing or references only if the new product requires them immediately.
+7. Populate product runtime files from the local runtime template with only resumable context fields that fit the product.
+8. Prefer product-specific pointer names that match the workspace ontology, such as `active_world_slug` or `active_adventure_slug`, instead of forcing a generic field name.
+9. Add product-local notes or placeholder files only when they clearly help the next step.
+10. Update engine-level routing or references only if the new product requires them immediately.
 
 # Constraints
 
@@ -56,6 +65,7 @@ This includes:
 - keep the scaffold minimal and extensible
 - keep all engine-side instructions and examples in engine_language
 - do not move product-specific logic into `.agents/skills/`
+- do not store canonical product data or full workspace state in product runtime
 
 # Output
 

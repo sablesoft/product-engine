@@ -27,6 +27,3 @@ connected_product_slugs: []
 
 # Active product package
 active_product_slug: null
-
-# Active product-local workspace or working container
-active_workspace_slug: null

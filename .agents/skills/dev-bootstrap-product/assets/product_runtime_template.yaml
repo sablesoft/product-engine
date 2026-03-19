@@ -1,0 +1,12 @@
+last_mode: null
+
+# Product-local active entity pointers are product-specific.
+# Replace this section with fields that match the product ontology, for example:
+# - active_world_slug
+# - active_scenario_slug
+# - active_character_slug
+# - active_adventure_slug
+# Or keep a generic field such as `active_workspace_slug` only when no clearer pointer exists.
+
+# Optional continuity metadata
+last_opened_at: null

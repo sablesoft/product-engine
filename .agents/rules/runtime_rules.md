@@ -4,6 +4,20 @@
 
 Runtime stores only engine-level context.
 
+## Engine runtime role
+
+- engine runtime is the active orchestration context for the current session
+- engine runtime stores what is active now, not what each product last used
+- engine runtime may mirror the currently active product mode as an operational snapshot
+- engine runtime must stay product-agnostic except for product selection pointers
+
+## Engine runtime semantics
+
+- `mode` means the currently active mode for the current session
+- `active_product_slug` means the currently selected product
+- engine runtime is the source of truth only for current engine context
+- engine runtime is not the source of truth for resumable product work context
+
 ## Allowed fields
 
 - mode
@@ -12,7 +26,15 @@ Runtime stores only engine-level context.
 - content_language
 - connected_product_slugs
 - active_product_slug
-- active_workspace_slug
+
+## Product runtime boundary
+
+- products may define their own runtime under `products/<product_slug>/state/runtime.yaml`
+- product runtime stores resumable product-local context between sessions
+- product runtime may store last-used mode and active product entity pointers
+- workspace pointers and product-specific entity pointers belong only in product runtime
+- product runtime must not be treated as engine runtime
+- product runtime must not replace workspace content or workspace state
 
 ## Forbidden
 
@@ -23,6 +45,12 @@ Runtime stores only engine-level context.
 - no workspace state
 - no turn counters
 - no bootstrap flags
+
+## Separation rule
+
+- engine runtime stores active context
+- product runtime stores resumable local context
+- workspaces store product truth, content, and mutable domain state
 
 ## Principle
 
