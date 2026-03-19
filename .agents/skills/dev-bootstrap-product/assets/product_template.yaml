@@ -1,0 +1,13 @@
+slug: {{product_slug}}
+name: {{product_name}}
+purpose: {{product_purpose}}
+scope: {{product_scope}}
+
+mode_namespace:
+  source: product
+  default_mode: null
+  modes: []
+
+workspace_model:
+  root: products/{{product_slug}}/workspaces
+  units: []

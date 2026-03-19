@@ -1,0 +1,10 @@
+name: {{mode_name}}
+purpose: {{mode_purpose}}
+
+routing:
+  entry_hints: []
+  default_skills: []
+
+boundaries:
+  owns: []
+  avoids: []
