@@ -77,6 +77,16 @@ Product-local rules may constrain:
 Product-local rules must not override engine root invariants.
 Product-local rules are the product-level source of truth for domain invariants.
 
+## Workspace dictionaries
+
+- if a product localizes workspace-facing card titles, section labels, or similar canon-facing UI text, it should keep those labels in a dedicated product-local dictionary area instead of hard-coding them across scripts and templates
+- commit only template dictionary files to the repository by default
+- local language realizations or user-adjusted wording should live in ignored non-template files
+- shared labels that apply across multiple workspace card types should live in shared dictionary files such as `sections`
+- labels that are unique to one entity or document type should live in a dictionary file for that entity or document type
+- when the dictionary grows, keep splitting by source domain rather than returning to one monolithic catch-all file
+- when card templates are added or refactored, update the relevant dictionary files in the same change so templates and dictionaries do not drift apart
+
 ## Mode ownership
 
 - `dev` is the only engine-native mode

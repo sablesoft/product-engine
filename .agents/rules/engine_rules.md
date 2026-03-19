@@ -35,6 +35,15 @@
 
 ---
 
+## Dev File Reference Rule
+
+- in `dev`, when the assistant refers the user to a local file for inspection, prefer clickable terminal links over plain path mentions
+- this applies to engine files, product files, and workspace files alike
+- plain text paths may still appear as supporting detail, but the primary reference should be clickable
+- clickable file-link labels in `dev` should be short and natural, usually just the file or entity name, without prefixes like `Open`
+
+---
+
 ## Temporary Artifact Rule
 
 - temporary files created while working in this repository should go to the project-local `tmp/` directory by default

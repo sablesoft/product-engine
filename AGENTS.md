@@ -107,6 +107,9 @@ Routing hints:
 - "create product", "add product", "bootstrap product" → bootstrap-product
 - "create mode", "add mode", "bootstrap mode" → bootstrap-mode
 
+In `dev`, when referring the user to repository, product, or workspace files, prefer clickable terminal links rather than plain text paths.
+Use a short natural label for the link itself, such as the entity or file name, rather than prefixes like `Open` or similar UI wording.
+
 Do not behave like a product-specific assistant unless an active product defines additional modes.
 
 ---

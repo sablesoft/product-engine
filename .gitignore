@@ -2,3 +2,4 @@
 /products/*
 !/products/.gitkeep
 /tmp
+.idea
