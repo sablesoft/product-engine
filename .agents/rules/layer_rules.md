@@ -46,6 +46,14 @@ If something defines:
 
 If something defines:
 
+- one concrete workspace's local invariants
+- special constraints for one specific world, adventure, or similar workspace instance
+- local exceptions or guardrails that apply only inside that workspace
+
+→ it belongs in that workspace's local `rules/` subtree, not in engine runtime and not in product-wide rules
+
+If something defines:
+
 - one concrete domain instance
 - its working content
 - its local history or progress
@@ -68,6 +76,7 @@ If something defines:
 - do not store workspace state in engine or product contracts
 - do not place product-local data in engine root
 - do not treat a workspace as a generic folder with no domain identity
+- do not let workspace-local rules redefine engine-wide or product-wide behavior
 
 ## Principle
 

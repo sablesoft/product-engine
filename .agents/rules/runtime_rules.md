@@ -17,6 +17,7 @@ Runtime stores only engine-level context.
 - `active_product_slug` means the currently selected product
 - engine runtime is the source of truth only for current engine context
 - engine runtime is not the source of truth for resumable product work context
+- when the active mode is a product-local mode and the switch is persistent, engine runtime `mode` must mirror that active product-local mode
 
 ## One-shot override
 
@@ -39,6 +40,7 @@ Runtime stores only engine-level context.
 - products may define their own runtime under `products/<product_slug>/state/runtime.yaml`
 - product runtime stores resumable product-local context between sessions
 - product runtime may store last-used mode and active product entity pointers
+- on a persistent mode switch inside the active product, product runtime `last_mode` should be updated together with engine runtime `mode`
 - workspace pointers and product-specific entity pointers belong only in product runtime
 - product runtime must not be treated as engine runtime
 - product runtime must not replace workspace content or workspace state
@@ -58,6 +60,7 @@ Runtime stores only engine-level context.
 - engine runtime stores active context
 - product runtime stores resumable local context
 - workspaces store product truth, content, and mutable domain state
+- persistent mode switches should keep engine runtime and active product runtime mode pointers in sync
 
 ## Principle
 

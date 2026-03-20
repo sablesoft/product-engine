@@ -37,6 +37,7 @@ The product contract may define:
 - use `products/<product_slug>/workspaces/` to store concrete workspace instances
 - do not store active workspace progress in `product.yaml`
 - do not use engine runtime as a substitute for product workspaces
+- if a product needs rules for one concrete workspace instance, keep them inside that workspace rather than elevating them into product-wide rules
 
 ## Product runtime
 
@@ -76,6 +77,16 @@ Product-local rules may constrain:
 
 Product-local rules must not override engine root invariants.
 Product-local rules are the product-level source of truth for domain invariants.
+
+## Workspace-local rules
+
+- a product may allow optional workspace-local rules inside one concrete workspace instance
+- workspace-local rules apply only to that specific workspace and do not define product-wide behavior
+- workspace-local rules must live under that workspace root, for example `products/<product_slug>/workspaces/<type>/<slug>/rules/`
+- workspace-local rules may constrain local canon, local play boundaries, local tone, or other workspace-specific invariants
+- workspace-local rules must not replace the primary workspace cards as the main readable source of truth
+- workspace-local rules must not override engine root invariants or product-wide rules
+- skills working inside a workspace should read relevant workspace-local rules when present
 
 ## Workspace dictionaries
 

@@ -56,6 +56,12 @@ One-shot override semantics:
 - a one-shot override must not update `state/runtime.yaml`
 - after the request is handled, the previously active runtime mode remains unchanged
 
+Persistent mode switch semantics:
+
+- an explicit mode switch updates the active session mode in `state/runtime.yaml`
+- if the resolved mode belongs to the active product, the active product runtime mode pointer must be updated in the same turn
+- engine runtime and active product runtime should not be left with different persisted mode pointers after a persistent switch
+
 ---
 
 ## Mode resolution

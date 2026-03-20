@@ -22,7 +22,9 @@
 - AGENTS.md must remain thin
 - workflow logic belongs only in SKILL.md
 - assets contain templates, not behavior
-- rules are defined only in `.agents/rules/`
+- engine-wide rules are defined only in `.agents/rules/`
+- product-wide rules are defined only in `products/<product_slug>/rules/`
+- workspace-local rules may exist only inside one concrete workspace and must not redefine engine-wide or product-wide invariants
 - product-specific logic belongs in `products/<product_slug>/`
 
 ---

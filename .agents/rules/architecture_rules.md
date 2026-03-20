@@ -21,6 +21,13 @@ If a concept answers:
 
 If a concept answers:
 
+- "what is always true in this one specific workspace"
+- "what local canon or play boundaries apply only to this world or adventure"
+
+→ it belongs in that workspace's local `rules/` subtree
+
+If a concept answers:
+
 - "how this skill performs its task"
 - "what structure this output should have"
 - "what checklist to follow locally"

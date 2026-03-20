@@ -36,6 +36,8 @@ There are three different runtime layers:
 
 Do not mix them.
 
+For persistent mode switches, keep the active engine mode and the active product's persisted mode pointer synchronized when the chosen mode is product-local. One-shot overrides remain temporary and must not rewrite either runtime.
+
 ## Products
 
 Products live under [products](products).
