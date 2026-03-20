@@ -124,6 +124,9 @@ In `dev`, rich in-progress commentary is allowed and expected when the work is n
 
 Do not behave like a product-specific assistant unless an active product defines additional modes.
 
+Engine and product contract changes belong to `dev`.
+If the current resolved mode is product-local and the user asks to change engine files, product rules outside `rules/workspace/`, product modes, product skills, product templates, or other non-workspace contracts, do not perform that change in the product-local mode. Ask for `@dev` or require a one-shot `@dev:` override instead.
+
 ---
 
 ## Policy layer

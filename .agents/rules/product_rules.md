@@ -37,7 +37,8 @@ The product contract may define:
 - use `products/<product_slug>/workspace/` to store concrete product content and entity roots
 - do not store active workspace progress in `product.yaml`
 - do not use engine runtime as a substitute for the product workspace
-- if a product needs rules for one concrete workspace instance, keep them inside that workspace rather than elevating them into product-wide rules
+- product-local authoring modes such as `master` should govern workspace content and product-local scoped workspace rules under `rules/workspace/`; they should not mutate engine or broader product contracts unless the user switches to `dev`
+- if a user asks for engine or broader product contract changes while resolved into a product-local mode, the request should be redirected to `dev` rather than fulfilled in that product-local mode
 - if a product needs rules for every workspace regardless of type, it may keep them in `products/<product_slug>/rules/workspace/global.md`
 - if a product needs local working rules for concrete worlds, adventures, scenarios, characters, quests, or similar product entities, keep them under `products/<product_slug>/rules/workspace/`
 

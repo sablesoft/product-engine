@@ -68,6 +68,13 @@ If something defines:
 
 → it belongs in a workspace
 
+If something changes:
+
+- engine rules, engine skills, or engine contracts
+- product rules outside `rules/workspace/`, product modes, product skills, product templates, or other broader product contracts
+
+→ it belongs in `dev`, not in a product-local authoring mode such as `master`
+
 If something defines:
 
 - the last local context for one product
@@ -85,6 +92,7 @@ If something defines:
 - do not treat a workspace as a generic folder with no domain identity
 - do not let workspace-local rules redefine engine-wide or product-wide behavior
 - do not let one concrete workspace become the accidental template for all entities of that type
+- do not let a product-local mode rewrite engine or broader product contracts when the user has not switched into `dev`
 
 ## Principle
 
