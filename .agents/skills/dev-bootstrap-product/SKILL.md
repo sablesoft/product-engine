@@ -13,7 +13,8 @@ This includes:
 - creating the product manifest
 - creating a product-local AGENTS entrypoint
 - creating a product-local rules layer
-- creating an optional workspace-type global rules layer when the workspace model already needs shared defaults
+- creating an optional all-workspace global rule file when the product needs shared defaults across every workspace
+- creating optional workspace-type global rules only when the product's workspace ontology needs type-specific shared defaults
 - creating product-local runtime files
 - preparing product-local folders for modes, skills, assets, and workspaces
 - suggesting minimal engine integration updates when needed

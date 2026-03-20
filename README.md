@@ -7,6 +7,7 @@ It separates:
 - engine behavior
 - product contracts
 - product-local rules and runtimes
+- all-workspace global rules
 - workspace-type global rules
 - workspace content and product state
 
@@ -27,8 +28,9 @@ It separates:
 The engine should stay independent from product content.
 Products should stay independent from concrete workspace content.
 
-Products may optionally define two workspace rule layers:
+Products may optionally define three workspace rule layers:
 
+- all-workspace global rules for every workspace in the product, for example `products/<product_slug>/rules/workspaces/global.md`
 - workspace-type global rules for every instance of one workspace type, for example `products/<product_slug>/rules/workspaces/<workspace_type>.md`
 - workspace-local rules for one concrete workspace instance, for example `products/<product_slug>/workspaces/<workspace_type>/<slug>/rules/`
 
