@@ -1,0 +1,4 @@
+link:
+  prefer_osc8: true
+  osc8_supported: true
+  include_open_fallback: false

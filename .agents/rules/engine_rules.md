@@ -41,6 +41,22 @@
 - this applies to engine files, product files, and workspace files alike
 - plain text paths may still appear as supporting detail, but the primary reference should be clickable
 - clickable file-link labels in `dev` should be short and natural, usually just the file or entity name, without prefixes like `Open`
+- terminal link preferences live in `state/terminal.yaml`, not in runtime
+- commit defaults in `state/terminal.template.yaml`; keep concrete local preferences in the ignored local file
+- if `state/terminal.yaml` indicates that OSC 8 works, OSC 8 output is the default and preferred file reference format across the engine
+- if the local terminal preferences file is absent, use `state/terminal.template.yaml` as the fallback source of defaults
+- when OSC 8 is the preferred format, do not rewrite file references as markdown links or bare paths unless the user explicitly asks for another format
+- if `state/terminal.yaml` disables local fallback commands, do not append `open ...` fallback lines just because the platform allows them
+
+---
+
+## Mode Communication Rule
+
+- `dev` is the only mode where frequent in-progress commentary is expected by default
+- in non-dev modes, do not stream step-by-step implementation commentary to the user
+- in `master`, `play`, and `ref`, send at most one short acknowledgement that the request is understood and being processed when the work is not instant
+- after that acknowledgement, remain quiet until the result is ready unless a real blocker or decision is unavoidable
+- final results may still be detailed when needed, but progress chatter belongs only to `dev`
 
 ---
 

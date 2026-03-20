@@ -3,11 +3,14 @@
 
 require "cgi"
 require "shellwords"
+require "yaml"
 
 module TerminalFileLink
   module_function
 
   IMAGE_EXTENSIONS = %w[.png .jpg .jpeg .webp .gif].freeze
+  TERMINAL_PREFERENCES_PATH = File.expand_path("../../state/terminal.yaml", __dir__)
+  TERMINAL_PREFERENCES_TEMPLATE_PATH = File.expand_path("../../state/terminal.template.yaml", __dir__)
 
   def file_link_lines(path:, kind: "auto", fallback_label: nil)
     absolute_path = File.expand_path(path)
@@ -15,9 +18,10 @@ module TerminalFileLink
 
     resolved_kind = resolve_kind(absolute_path, kind)
     label = fallback_label || default_label_for(resolved_kind)
+    preferences = terminal_preferences
 
     lines = [osc8_link(file_uri(absolute_path), label)]
-    lines << "open #{Shellwords.escape(absolute_path)}" if macos?
+    lines << "open #{Shellwords.escape(absolute_path)}" if macos? && include_open_fallback?(preferences)
     lines
   end
 
@@ -29,6 +33,25 @@ module TerminalFileLink
 
   def default_label_for(kind)
     kind == "image" ? "[Открыть изображение]" : "[Открыть файл]"
+  end
+
+  def terminal_preferences
+    preferences_path = if File.exist?(TERMINAL_PREFERENCES_PATH)
+      TERMINAL_PREFERENCES_PATH
+    elsif File.exist?(TERMINAL_PREFERENCES_TEMPLATE_PATH)
+      TERMINAL_PREFERENCES_TEMPLATE_PATH
+    end
+
+    return {} unless preferences_path
+
+    YAML.load_file(preferences_path) || {}
+  rescue Psych::SyntaxError
+    {}
+  end
+
+  def include_open_fallback?(preferences)
+    link_preferences = preferences.fetch("link", {})
+    link_preferences.fetch("include_open_fallback", true)
   end
 
   def macos?

@@ -34,6 +34,8 @@ Do not store canonical product data or full workspace state in product runtime.
 See:
 - `.agents/rules/runtime_rules.md`
 - `.agents/rules/product_rules.md`
+- `state/terminal.yaml` for local terminal link behavior when present
+- `state/terminal.template.yaml` for the committed template
 
 ---
 
@@ -109,6 +111,9 @@ Routing hints:
 
 In `dev`, when referring the user to repository, product, or workspace files, prefer clickable terminal links rather than plain text paths.
 Use a short natural label for the link itself, such as the entity or file name, rather than prefixes like `Open` or similar UI wording.
+When `state/terminal.yaml` says OSC 8 is supported, treat the terminal link as the primary output format and do not downgrade it to a markdown file link or plain path unless the user explicitly asks.
+If the local file is absent, use `state/terminal.template.yaml` as the default contract.
+In `dev`, rich in-progress commentary is allowed and expected when the work is non-trivial.
 
 Do not behave like a product-specific assistant unless an active product defines additional modes.
 

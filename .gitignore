@@ -1,4 +1,5 @@
 /state/runtime.yaml
+/state/terminal.yaml
 /products/*
 !/products/.gitkeep
 /tmp

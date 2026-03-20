@@ -16,6 +16,8 @@ Engine-level entry points:
 
 - `AGENTS.md`
 - `state/runtime.yaml`
+- `state/terminal.yaml`
+- `state/terminal.template.yaml`
 - `.agents/rules/skill_rules.md`
 - `.agents/rules/product_rules.md`
 - relevant product `AGENTS.md` when a product file is involved
@@ -24,11 +26,14 @@ Engine-level entry points:
 
 1. Resolve the target file path.
 2. Confirm the file exists before emitting the link.
-3. Prefer an OSC 8 clickable `file://` link to the absolute path.
-4. On macOS, also provide a ready `open /absolute/path` fallback command when useful.
-5. Keep output lightweight so it can appear inline with dev workflow results.
-6. Use `scripts/file-link` for generic files and `scripts/image-link` for image-specific terminal behavior.
-7. If a product has additional image workflows such as saving previews back into cards, keep that product-specific behavior outside this engine skill.
+3. Read `state/terminal.yaml` before choosing the output shape.
+4. If the local preferences file is absent, read `state/terminal.template.yaml`.
+5. Prefer an OSC 8 clickable `file://` link to the absolute path.
+6. If terminal preferences say OSC 8 works well, treat that OSC 8 link as the primary output and do not rewrite it into markdown or replace it with a plain path.
+7. On macOS, provide a ready `open /absolute/path` fallback command only when terminal preferences allow or request that fallback.
+8. Keep output lightweight so it can appear inline with dev workflow results.
+9. Use `scripts/file-link` for generic files and `scripts/image-link` for image-specific terminal behavior.
+10. If a product has additional image workflows such as saving previews back into cards, keep that product-specific behavior outside this engine skill.
 
 # Constraints
 
