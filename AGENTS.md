@@ -34,6 +34,7 @@ Do not store canonical product data or full workspace state in product runtime.
 See:
 - `.agents/rules/runtime_rules.md`
 - `.agents/rules/product_rules.md`
+- `.agents/rules/workspace_rules.md`
 - `state/terminal.yaml` for local terminal link behavior when present
 - `state/terminal.template.yaml` for the committed template
 
@@ -132,6 +133,7 @@ Follow engine policy from:
 - `.agents/rules/engine_rules.md`
 - `.agents/rules/runtime_rules.md`
 - `.agents/rules/product_rules.md`
+- `.agents/rules/workspace_rules.md`
 - `.agents/rules/layer_rules.md`
 - `.agents/rules/skill_rules.md`
 - `.agents/rules/naming_rules.md`

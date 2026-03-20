@@ -7,6 +7,7 @@ It separates:
 - engine behavior
 - product contracts
 - product-local rules and runtimes
+- workspace-type global rules
 - workspace content and product state
 
 ## What lives here
@@ -25,6 +26,13 @@ It separates:
 
 The engine should stay independent from product content.
 Products should stay independent from concrete workspace content.
+
+Products may optionally define two workspace rule layers:
+
+- workspace-type global rules for every instance of one workspace type, for example `products/<product_slug>/rules/workspaces/<workspace_type>.md`
+- workspace-local rules for one concrete workspace instance, for example `products/<product_slug>/workspaces/<workspace_type>/<slug>/rules/`
+
+This makes it possible to keep shared workspace defaults out of individual workspaces while still allowing justified local constraints.
 
 ## Runtime model
 
@@ -47,6 +55,7 @@ Each product may define:
 - its own `product.yaml`
 - product-local `AGENTS.md`
 - product-local `rules/`
+- product-local `rules/workspaces/`
 - product-local `modes/`
 - product-local `skills/`
 - product-local `state/runtime.yaml`
@@ -99,6 +108,7 @@ Behavior:
 - [AGENTS.md](AGENTS.md)
 - [.agents/rules/runtime_rules.md](.agents/rules/runtime_rules.md)
 - [.agents/rules/product_rules.md](.agents/rules/product_rules.md)
+- [.agents/rules/workspace_rules.md](.agents/rules/workspace_rules.md)
 - [.agents/rules/layer_rules.md](.agents/rules/layer_rules.md)
 - [.agents/skills/dev-bootstrap-product/SKILL.md](.agents/skills/dev-bootstrap-product/SKILL.md)
 

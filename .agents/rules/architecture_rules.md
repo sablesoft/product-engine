@@ -28,6 +28,13 @@ If a concept answers:
 
 If a concept answers:
 
+- "what is always true for every workspace of this product workspace type"
+- "what defaults should all workspaces of this type inherit"
+
+→ it belongs in the product's workspace-type global rules layer
+
+If a concept answers:
+
 - "how this skill performs its task"
 - "what structure this output should have"
 - "what checklist to follow locally"

@@ -36,6 +36,11 @@ Each skill must:
 - do not introduce new hard-coded localized section headers into scripts or templates when the product already defines a dictionary workflow
 - when a skill changes workspace card templates, it should update the corresponding dictionary entries at the same time
 
+## Skill granularity for promotion
+
+- if a product already has a promotion workflow, extend that workflow before creating a new skill for a closely related scope-transfer case
+- create a separate skill only when the new workflow has meaningfully different inputs, review requirements, or execution phases
+
 ## Principle
 
 One skill = one workflow.

@@ -38,6 +38,7 @@ The product contract may define:
 - do not store active workspace progress in `product.yaml`
 - do not use engine runtime as a substitute for product workspaces
 - if a product needs rules for one concrete workspace instance, keep them inside that workspace rather than elevating them into product-wide rules
+- if a product needs rules for every instance of one workspace type, keep them in workspace-type global rule files rather than duplicating them across concrete workspaces
 
 ## Product runtime
 
@@ -87,6 +88,22 @@ Product-local rules are the product-level source of truth for domain invariants.
 - workspace-local rules must not replace the primary workspace cards as the main readable source of truth
 - workspace-local rules must not override engine root invariants or product-wide rules
 - skills working inside a workspace should read relevant workspace-local rules when present
+
+## Workspace-type global rules
+
+- a product may define optional workspace-type global rule files under `products/<product_slug>/rules/workspaces/`
+- each file should constrain one workspace type across the whole product
+- use workspace-type global rules when a constraint should apply to every workspace instance of that type
+- workspace-type global rules are narrower than general product rules but broader than one concrete workspace's local rules
+- workspace-type global rules must not override engine root invariants or general product-wide rules
+- skills working with one workspace type should read the matching workspace-type global rules when present
+
+## Rule transfer between workspace scopes
+
+- a product may support promoting a rule statement from one concrete workspace into workspace-type global rules
+- a product may support localizing a workspace-type global rule into one concrete workspace
+- products should document whether rule transfer belongs to an existing promotion workflow or to a dedicated rule-governance workflow
+- when rule transfer is supported, the workflow must preserve meaning and resolve conflicts explicitly
 
 ## Workspace dictionaries
 

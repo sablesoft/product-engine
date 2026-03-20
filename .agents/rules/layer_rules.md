@@ -46,6 +46,13 @@ If something defines:
 
 If something defines:
 
+- defaults for every workspace of one product workspace type
+- invariants shared by all `world`, all `adventure`, or analogous product workspace units
+
+→ it belongs in that product's workspace-type global rules layer, not in one concrete workspace
+
+If something defines:
+
 - one concrete workspace's local invariants
 - special constraints for one specific world, adventure, or similar workspace instance
 - local exceptions or guardrails that apply only inside that workspace
@@ -77,6 +84,7 @@ If something defines:
 - do not place product-local data in engine root
 - do not treat a workspace as a generic folder with no domain identity
 - do not let workspace-local rules redefine engine-wide or product-wide behavior
+- do not let one concrete workspace become the accidental template for all workspaces of that type
 
 ## Principle
 

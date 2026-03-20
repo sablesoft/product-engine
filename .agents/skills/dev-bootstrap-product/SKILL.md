@@ -13,6 +13,7 @@ This includes:
 - creating the product manifest
 - creating a product-local AGENTS entrypoint
 - creating a product-local rules layer
+- creating an optional workspace-type global rules layer when the workspace model already needs shared defaults
 - creating product-local runtime files
 - preparing product-local folders for modes, skills, assets, and workspaces
 - suggesting minimal engine integration updates when needed
@@ -25,6 +26,7 @@ This includes:
 - `.agents/rules/architecture_rules.md`
 - `.agents/rules/skill_rules.md`
 - `.agents/rules/product_rules.md`
+- `.agents/rules/workspace_rules.md`
 - `.agents/rules/naming_rules.md`
 - existing `.agents/skills/**`
 - existing `products/**`
@@ -54,6 +56,7 @@ This includes:
     - `products/<product_slug>/.gitignore`
     - `products/<product_slug>/rules/`
     - `products/<product_slug>/rules/product_rules.md`
+    - optional `products/<product_slug>/rules/workspaces/`
     - `products/<product_slug>/modes/`
     - `products/<product_slug>/skills/`
     - `products/<product_slug>/assets/`
@@ -63,11 +66,12 @@ This includes:
     - `products/<product_slug>/workspaces/`
 6. Populate `AGENTS.md` with product-level routing, runtime boundaries, and mode responsibilities.
 7. Create the initial product-local rules layer with at least one rule file for domain invariants and boundaries.
-8. Populate `product.yaml` from the local template with only the fields needed to describe the product contract.
-9. Populate product runtime files from the local runtime template with only resumable context fields that fit the product.
-10. Prefer product-specific pointer names that match the workspace ontology, such as `active_world_slug` or `active_adventure_slug`, instead of forcing a generic field name.
-11. Add product-local notes or placeholder files only when they clearly help the next step.
-12. Update engine-level routing or references only if the new product requires them immediately.
+8. If the workspace model already implies shared defaults for one workspace type, scaffold `products/<product_slug>/rules/workspaces/` and add the minimal matching rule files.
+9. Populate `product.yaml` from the local template with only the fields needed to describe the product contract.
+10. Populate product runtime files from the local runtime template with only resumable context fields that fit the product.
+11. Prefer product-specific pointer names that match the workspace ontology, such as `active_world_slug` or `active_adventure_slug`, instead of forcing a generic field name.
+12. Add product-local notes or placeholder files only when they clearly help the next step.
+13. Update engine-level routing or references only if the new product requires them immediately.
 
 # Constraints
 
