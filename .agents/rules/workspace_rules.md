@@ -2,61 +2,64 @@
 
 ## Purpose
 
-Define the shared engine contract for product-wide all-workspace rules, product-specific workspace-type rules, concrete workspace-local rules, and rule transfer between those layers.
+Define the shared engine contract for product-wide all-workspace rules, product-specific scoped rule files, concrete local rule files, and rule transfer between those layers.
 
 ## Rule layers
 
 - engine rules define engine-wide invariants
 - product rules define product-wide domain invariants
 - all-workspace global rules define optional defaults for every workspace inside one product
-- workspace-type global rules define invariants for every workspace instance of one workspace type inside a product
-- workspace-local rules define invariants for one concrete workspace instance
+- scoped product rule files define optional defaults or constraints for one named product scope under `rules/workspace/`
+- local rule files define invariants for one concrete product scope or entity instance
 
 ## Product-wide all-workspace rules
 
-- a product may define one optional all-workspace rule file under `products/<product_slug>/rules/workspaces/`
+- a product may define one optional all-workspace rule file under `products/<product_slug>/rules/workspace/`
 - preferred path:
-  - `products/<product_slug>/rules/workspaces/global.md`
+  - `products/<product_slug>/rules/workspace/global.md`
 - use this layer when a constraint should apply to every workspace in that product regardless of workspace type
 - if this file is absent, that product simply has no all-workspace-specific defaults beyond its ordinary product rules
 
-## Product-specific workspace-type rules
+## Product-scoped rule files
 
-- a product may define optional workspace-type global rule files under `products/<product_slug>/rules/workspaces/`
-- each such file should constrain one workspace type across the whole product
+- a product may define optional scoped rule files under `products/<product_slug>/rules/workspace/`
+- these files may target:
+  - one workspace type across the whole product
+  - one concrete workspace instance
+  - one product entity type or one concrete entity instance such as a scenario, character, quest, or similar product-local scope
+- preferred path shapes:
+  - `products/<product_slug>/rules/workspace/<entity>.md`
+  - `products/<product_slug>/rules/workspace/<entity>/<slug>.md`
+- exact filenames are product-specific because product ontology is product-specific
+- if a matching scoped rule file is absent, that scope simply has no extra defaults at that layer
+
+## Local scoped rule files
+
+- a product may define optional local scoped rule files for one concrete entity instance, or other product-local scope
 - preferred path shape:
-  - `products/<product_slug>/rules/workspaces/<workspace_type>.md`
-- use workspace-type global rules when the constraint should apply to every workspace of that type, not just one instance
-- workspace-type filenames are product-specific because workspace ontology is product-specific
-- if a matching workspace-type rule file is absent, that workspace type simply has no extra defaults at that layer
-
-## Workspace-local rules
-
-- a product may define optional workspace-local rules inside one concrete workspace instance
-- preferred path shape:
-  - `products/<product_slug>/workspaces/<workspace_type>/<workspace_slug>/rules/`
-- workspace-local rules apply only to that one workspace
+  - `products/<product_slug>/rules/workspace/<entity>/<slug>.md`
+- local scoped rules apply only to that one concrete scope
 
 ## Reading order
 
 - apply engine rules first
 - then apply product-wide rules
 - then apply all-workspace global rules when present
-- then apply workspace-type global rules for the relevant workspace type when present
-- then apply workspace-local rules for the concrete workspace when present
+- then apply any relevant scoped rule files under `rules/workspace/`
+- then apply any relevant local scoped rule files for the concrete workspace entity, or working scope
 - if a narrower rule conflicts with a broader rule, prefer the broader invariant and surface the conflict explicitly
 
 ## Rule transfer
 
 - products may support transferring rule statements between:
-  - all-workspace global rules and workspace-type global rules
-  - all-workspace global rules and workspace-local rules
-  - workspace-local rules and workspace-type global rules
+  - all-workspace global rules and scoped rule files
+  - all-workspace global rules and local scoped rule files
+  - local scoped rule files and broader scoped rule files
   - broader and narrower scopes of the same product rule domain
 - when a local or type-specific rule is generalized into the all-workspace global rule, treat that as rule promotion
-- when a local rule is generalized into a workspace-type global rule, treat that as rule promotion
-- when an all-workspace global rule is narrowed into one workspace type or one concrete workspace, treat that as rule localization
-- when a workspace-type global rule is brought down into one concrete workspace, treat that as rule localization
+- when a local rule is generalized into a broader scoped rule file, treat that as rule promotion
+- when an all-workspace global rule is narrowed into one workspace type, one concrete workspace, or one concrete entity scope, treat that as rule localization
+- when a broader scoped rule file is brought down into one narrower concrete scope, treat that as rule localization
 
 ## Transfer semantics
 
@@ -75,8 +78,8 @@ Define the shared engine contract for product-wide all-workspace rules, product-
 
 - do not treat workspace rules as runtime
 - do not let all-workspace global rules replace ordinary product-wide rules
-- do not let workspace-type global rules replace product-wide rules
-- do not let workspace-local rules masquerade as product-wide defaults
+- do not let scoped rule files replace product-wide rules
+- do not let local scoped rule files masquerade as product-wide defaults
 - do not silently broaden one workspace rule into a product-wide invariant
 
 ## Principle

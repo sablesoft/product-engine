@@ -59,7 +59,7 @@ Runtime stores only engine-level context.
 
 - engine runtime stores active context
 - product runtime stores resumable local context
-- workspaces store product truth, content, and mutable domain state
+- workspace stores product truth, content, and mutable domain state
 - persistent mode switches should keep engine runtime and active product runtime mode pointers in sync
 
 ## Principle

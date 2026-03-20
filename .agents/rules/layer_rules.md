@@ -57,7 +57,7 @@ If something defines:
 - special constraints for one specific world, adventure, or similar workspace instance
 - local exceptions or guardrails that apply only inside that workspace
 
-→ it belongs in that workspace's local `rules/` subtree, not in engine runtime and not in product-wide rules
+→ it belongs in the product rule layer as a local scoped rule file such as `rules/workspace/<entity>/<slug>.md`, not in engine runtime and not in product-wide rules
 
 If something defines:
 
@@ -84,7 +84,7 @@ If something defines:
 - do not place product-local data in engine root
 - do not treat a workspace as a generic folder with no domain identity
 - do not let workspace-local rules redefine engine-wide or product-wide behavior
-- do not let one concrete workspace become the accidental template for all workspaces of that type
+- do not let one concrete workspace become the accidental template for all entities of that type
 
 ## Principle
 

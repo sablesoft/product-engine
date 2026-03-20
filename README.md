@@ -30,11 +30,11 @@ Products should stay independent from concrete workspace content.
 
 Products may optionally define three workspace rule layers:
 
-- all-workspace global rules for every workspace in the product, for example `products/<product_slug>/rules/workspaces/global.md`
-- workspace-type global rules for every instance of one workspace type, for example `products/<product_slug>/rules/workspaces/<workspace_type>.md`
-- workspace-local rules for one concrete workspace instance, for example `products/<product_slug>/workspaces/<workspace_type>/<slug>/rules/`
+- all-workspace global rules for every workspace entity in the product, for example `products/<product_slug>/rules/workspace/global.md`
+- product-scoped rule files for workspace entity, for example `products/<product_slug>/rules/workspace/<entity>.md`
+- local scoped rule files for one concrete workspace entity instance, for example `products/<product_slug>/rules/workspace/<entity>/<slug>.md`
 
-This makes it possible to keep shared workspace defaults out of individual workspaces while still allowing justified local constraints.
+This makes it possible to keep shared workspace defaults and local working rules out of individual content folders while still allowing justified local constraints for any product scope.
 
 ## Runtime model
 
@@ -57,11 +57,11 @@ Each product may define:
 - its own `product.yaml`
 - product-local `AGENTS.md`
 - product-local `rules/`
-- product-local `rules/workspaces/`
+- product-local `rules/workspace/`
 - product-local `modes/`
 - product-local `skills/`
 - product-local `state/runtime.yaml`
-- product-local `workspaces/`
+- product-local `workspace/`
 
 ## Repository strategy
 

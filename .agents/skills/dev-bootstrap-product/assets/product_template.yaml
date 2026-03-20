@@ -8,6 +8,6 @@ mode_namespace:
   default_mode: null
   modes: []
 
-workspace_model:
-  root: products/{{product_slug}}/workspaces
-  units: []
+workspace:
+  root: products/{{product_slug}}/workspace
+  entities: []

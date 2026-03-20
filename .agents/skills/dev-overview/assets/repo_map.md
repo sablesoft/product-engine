@@ -6,6 +6,6 @@ Core engine areas:
 - `state/runtime.yaml` — current engine runtime context
 - `.agents/rules/` — global engine rules and invariants
 - `.agents/skills/` — mode-specific and workflow-specific skills
-- `products/` — product packages with product-local modes, skills, assets, and workspaces
+- `products/` — product packages with product-local modes, skills, assets, and workspace structure
 
 Use this map when explaining project structure.

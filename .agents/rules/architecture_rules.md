@@ -4,7 +4,7 @@
 
 - rules define global invariants and how the engine must behave
 - engine-native skills define engine workflows and how to perform them
-- products define domain-specific modes, skills, assets, and workspaces
+- products define domain-specific modes, skills, assets, and workspace structure
 - assets support skills and must not redefine global behavior
 
 ---
@@ -24,12 +24,12 @@ If a concept answers:
 - "what is always true in this one specific workspace"
 - "what local canon or play boundaries apply only to this world or adventure"
 
-→ it belongs in that workspace's local `rules/` subtree
+→ it belongs in the product rule layer as a local scoped rule file such as `rules/workspace/<entity>/<slug>.md`
 
 If a concept answers:
 
 - "what is always true for every workspace of this product workspace type"
-- "what defaults should all workspaces of this type inherit"
+- "what defaults should all entities of this type inherit"
 
 → it belongs in the product's workspace-type global rules layer
 

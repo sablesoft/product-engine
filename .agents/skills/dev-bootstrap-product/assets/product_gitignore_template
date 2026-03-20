@@ -1,2 +1,3 @@
 state/runtime.yaml
-
+rules/workspace/*
+!rules/workspace/.gitkeep

@@ -4,7 +4,7 @@
 
 - a product is a first-class engine extension unit
 - each product lives under `products/<product_slug>/`
-- each product owns its own rules, modes, skills, assets, runtime, and workspaces
+- each product owns its own rules, modes, skills, assets, runtime, and workspace
 
 ## Required product contract
 
@@ -19,27 +19,27 @@ The product contract may define:
 - product identity
 - purpose and scope
 - product-local mode namespace
-- workspace model
+- workspace contract
 
-## Workspace model
+## Workspace
 
-- `workspace_model` defines which workspace unit types the product supports
-- `workspace_model` does not store workspace instances or workspace state
-- workspace instances live under the product workspace root
-- each workspace unit should represent one concrete domain work container
-- workspace units may be:
-    - canonical entity workspaces such as worlds, characters, books, or contacts
-    - stateful run workspaces such as adventures, sessions, draft runs, or deal cycles
+- `workspace` defines the product workspace root and the product-specific entity ontology inside it
+- `workspace` does not store live runtime state
+- product content lives under the product workspace root
+- each product entity should represent one concrete domain work container
+- product entities may be:
+    - canonical entity repositories such as worlds, characters, books, or contacts
+    - stateful run repositories such as adventures, sessions, draft runs, or deal cycles
 
 ## Workspace boundary
 
 - use `product.yaml` to define the available workspace ontology
-- use `products/<product_slug>/workspaces/` to store concrete workspace instances
+- use `products/<product_slug>/workspace/` to store concrete product content and entity roots
 - do not store active workspace progress in `product.yaml`
-- do not use engine runtime as a substitute for product workspaces
+- do not use engine runtime as a substitute for the product workspace
 - if a product needs rules for one concrete workspace instance, keep them inside that workspace rather than elevating them into product-wide rules
-- if a product needs rules for every workspace regardless of type, it may keep them in `products/<product_slug>/rules/workspaces/global.md`
-- if a product needs rules for every instance of one workspace type, keep them in workspace-type global rule files rather than duplicating them across concrete workspaces
+- if a product needs rules for every workspace regardless of type, it may keep them in `products/<product_slug>/rules/workspace/global.md`
+- if a product needs local working rules for concrete worlds, adventures, scenarios, characters, quests, or similar product entities, keep them under `products/<product_slug>/rules/workspace/`
 
 ## Product runtime
 
@@ -71,7 +71,7 @@ A product must define product-local rules under:
 
 Product-local rules may constrain:
 - product modes
-- product workspaces
+- product workspace and entities
 - product-local naming
 - product-local workflows
 - product runtime usage
@@ -80,40 +80,40 @@ Product-local rules may constrain:
 Product-local rules must not override engine root invariants.
 Product-local rules are the product-level source of truth for domain invariants.
 
-## Workspace-local rules
+## Local scoped rules
 
-- a product may allow optional workspace-local rules inside one concrete workspace instance
-- workspace-local rules apply only to that specific workspace and do not define product-wide behavior
-- workspace-local rules must live under that workspace root, for example `products/<product_slug>/workspaces/<type>/<slug>/rules/`
-- workspace-local rules may constrain local canon, local play boundaries, local tone, or other workspace-specific invariants
-- workspace-local rules must not replace the primary workspace cards as the main readable source of truth
-- workspace-local rules must not override engine root invariants or product-wide rules
-- skills working inside a workspace should read relevant workspace-local rules when present
+- a product may allow optional local scoped rules for one concrete workspace, entity, or other product-local working scope
+- local scoped rules apply only to that specific scope and do not define product-wide behavior
+- local scoped rules must live under the product rule layer, for example `products/<product_slug>/rules/workspace/<entity>/<slug>.md`
+- local scoped rules may constrain local canon, local play boundaries, local tone, or other scope-specific invariants
+- local scoped rules must not replace the primary content cards as the main readable source of truth
+- local scoped rules must not override engine root invariants or product-wide rules
+- skills working inside a product scope should read relevant local scoped rules when present
 
 ## All-workspace global rules
 
-- a product may define one optional all-workspace rule file under `products/<product_slug>/rules/workspaces/global.md`
+- a product may define one optional all-workspace rule file under `products/<product_slug>/rules/workspace/global.md`
 - use all-workspace global rules when a constraint should apply to every workspace in that product regardless of workspace type
 - all-workspace global rules are narrower than general product rules but broader than workspace-type global rules and workspace-local rules
 - all-workspace global rules must not override engine root invariants or general product-wide rules
 - skills working across different workspace types should read this layer when present
 
-## Workspace-type global rules
+## Product-scoped rules under `rules/workspace/`
 
-- a product may define optional workspace-type global rule files under `products/<product_slug>/rules/workspaces/`
-- each file should constrain one workspace type across the whole product
-- use workspace-type global rules when a constraint should apply to every workspace instance of that type
-- workspace-type global rules are narrower than general product rules but broader than one concrete workspace's local rules
-- workspace-type global rules must not override engine root invariants or general product-wide rules
-- skills working with one workspace type should read the matching workspace-type global rules when present
-- workspace-type filenames are product-specific because workspace ontology is product-specific
+- a product may define optional scoped rule files under `products/<product_slug>/rules/workspace/`
+- this directory is the product-local area for workspace and entity-specific working rules
+- files in this directory may target every workspace, one workspace type, one concrete workspace, or one concrete entity scope such as a scenario, character, or quest
+- scoped rule files are narrower than general product rules but broader than one concrete turn or runtime state
+- scoped rule files must not override engine root invariants or general product-wide rules
+- skills should read the matching scoped rule files when present
+- exact filenames are product-specific because product ontology is product-specific
 
 ## Rule transfer between workspace scopes
 
-- a product may support promoting a rule statement from one concrete workspace or one workspace type into all-workspace global rules
-- a product may support localizing an all-workspace global rule into one workspace type or one concrete workspace
-- a product may support promoting a rule statement from one concrete workspace into workspace-type global rules
-- a product may support localizing a workspace-type global rule into one concrete workspace
+- a product may support promoting a rule statement from one concrete scope or one broader scoped rule file into all-workspace global rules
+- a product may support localizing an all-workspace global rule into one workspace type, one concrete workspace, or one concrete entity scope
+- a product may support promoting a rule statement from one concrete entity or workspace into a broader scoped rule file under `rules/workspace/`
+- a product may support localizing a broader scoped rule into one concrete scope
 - products should document whether rule transfer belongs to an existing promotion workflow or to a dedicated rule-governance workflow
 - when rule transfer is supported, the workflow must preserve meaning and resolve conflicts explicitly
 

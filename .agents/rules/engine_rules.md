@@ -24,8 +24,8 @@
 - assets contain templates, not behavior
 - engine-wide rules are defined only in `.agents/rules/`
 - product-wide rules are defined only in `products/<product_slug>/rules/`
-- workspace-type global product rules may exist only in `products/<product_slug>/rules/workspaces/`
-- workspace-local rules may exist only inside one concrete workspace and must not redefine engine-wide or product-wide invariants
+- product-scoped rule files may exist only in `products/<product_slug>/rules/workspace/`
+- local scoped rules may exist only as product-local files such as `products/<product_slug>/rules/workspace/<entity>/<slug>.md` and must not redefine engine-wide or product-wide invariants
 - product-specific logic belongs in `products/<product_slug>/`
 
 ---

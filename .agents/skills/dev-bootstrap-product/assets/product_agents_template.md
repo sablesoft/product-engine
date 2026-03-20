@@ -45,11 +45,11 @@ If mode is missing:
 
 ---
 
-## Workspace model
+## Workspace
 
-Workspace units:
+Workspace entities:
 
-{{workspace_unit_list}}
+{{workspace_entities_list}}
 
 Interpretation:
 
@@ -65,5 +65,5 @@ Interpretation:
 
 ## Principle
 
-Product truth lives in workspaces.  
+Product truth lives in workspace.  
 Session continuity lives in product runtime.
