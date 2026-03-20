@@ -35,6 +35,8 @@
 - do not duplicate rules across files
 - always reference rules instead of copying them
 - dev-audit must validate rule adherence
+- when performing an otherwise valid task, if you notice a small, directly relevant, and confidently fixable bug that blocks or degrades the requested workflow, fix it in the same pass instead of leaving it behind
+- do not use this as a reason to bypass mode boundaries or to expand the task into an unrelated refactor
 
 ---
 
