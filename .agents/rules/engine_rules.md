@@ -40,6 +40,14 @@
 
 ---
 
+## Edit Freshness Rule
+
+- before any file edit, reread the file's current version from disk
+- do not rely on memory, earlier command output, or stale patch context when preparing an edit
+- if a file has already been edited multiple times in the same pass or its structure has become unstable, prefer a clean full-file rewrite over additional partial patches
+
+---
+
 ## Dev File Reference Rule
 
 - in `dev`, when the assistant refers the user to a local file for inspection, prefer clickable terminal links over plain path mentions
