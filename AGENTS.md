@@ -50,12 +50,23 @@ One-shot override:
 
 - `@dev: ...`
 
+Persistent switch with inline request:
+
+- `@dev - ...`
+
 One-shot override semantics:
 
 - a one-shot override applies only to the current user request
 - a one-shot override has higher priority than explicit mode switch and stored runtime mode
 - a one-shot override must not update `state/runtime.yaml`
 - after the request is handled, the previously active runtime mode remains unchanged
+
+Persistent switch with inline request semantics:
+
+- a persistent switch with inline request both executes the current user request in the named mode and persists that mode after the request
+- unlike a one-shot override, it updates `state/runtime.yaml`
+- if the resolved mode belongs to the active product, the active product runtime mode pointer must be updated in the same turn
+- after the request is handled, the named mode remains the active persisted mode
 
 Persistent mode switch semantics:
 

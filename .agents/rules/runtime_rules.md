@@ -26,6 +26,13 @@ Runtime stores only engine-level context.
 - a one-shot override must not write its temporary mode into engine runtime
 - a one-shot override must not write its temporary mode into product runtime unless the user explicitly performs a persistent mode switch
 
+## Persistent switch with inline request
+
+- a command of the form `@mode - <request>` is a persistent mode switch, not a one-shot override
+- it should execute the request in the named mode and then persist that mode
+- it must write the resolved mode into engine runtime
+- when the resolved mode belongs to the active product, it must also update the matching product runtime mode pointer in the same turn
+
 ## Allowed fields
 
 - mode
