@@ -1,13 +1,16 @@
 slug: {{product_slug}}
 name: {{product_name}}
+profile: embedded
 purpose: {{product_purpose}}
 scope: {{product_scope}}
 
-mode_namespace:
-  source: product
-  default_mode: null
-  modes: []
+distribution:
+  model: embedded
+  root_skill_folders: []
 
 workspace:
   root: products/{{product_slug}}/workspace
   entities: []
+
+runtime:
+  enabled: true

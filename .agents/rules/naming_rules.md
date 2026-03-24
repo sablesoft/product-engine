@@ -43,6 +43,17 @@ Use only for:
 Example:
 - `./assets/refactor_checklist.md`
 
+### 3. Toolkit-root-relative (allowed for portable toolkit products)
+
+Use for:
+- internal references inside a toolkit product that must survive being copied into a host repository
+- product-local manifests, rules, templates, references, adapters, and skills inside that toolkit
+
+Example:
+- `product.yaml`
+- `rules/product_rules.md`
+- `skills/debug-diagnosis/SKILL.md`
+
 ---
 
 ## Restrictions
@@ -50,6 +61,7 @@ Example:
 - do not use `./` outside the current skill
 - do not mix interpretations inside one list
 - do not use `../` at all
+- do not use toolkit-root-relative paths outside toolkit products
 
 ---
 

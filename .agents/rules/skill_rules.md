@@ -26,9 +26,12 @@ Each skill must:
 ## Skill scope
 
 - engine-native skills live in `.agents/skills/`
-- product-local skills live in `products/<product_slug>/skills/`
+- embedded product-local skills live in `products/<product_slug>/skills/`
+- toolkit product installable skills live in top-level skill folders directly under `products/<product_slug>/`
 - do not place product-local skills in `.agents/skills/`
 - do not place engine-native skills inside products
+- do not make a toolkit skill depend on shared sibling folders outside its own skill directory when it is meant to ship through `skill-installer`
+- when a toolkit skill is meant to ship through `skill-installer`, keep its installed version in a `VERSION` file inside the skill folder
 
 ## Skill and dictionary alignment
 

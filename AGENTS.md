@@ -91,6 +91,12 @@ If a requested mode is not engine-native:
 - resolve it from the active product
 - if the active product does not define it, do not treat it as valid
 
+When product-specific instructions are needed:
+- read `products/<product_slug>/product.yaml`
+- embedded products use `products/<product_slug>/AGENTS.md`
+- toolkit products are primarily documented through `products/<product_slug>/README.md` and their installable skill folders
+- do not assume a toolkit product exposes a product-level AGENTS-style entrypoint
+
 ---
 
 ## Modes
@@ -112,7 +118,7 @@ Use:
 - `dev-overview`
 - `dev-refactor`
 - `dev-audit`
-- `dev-file-link`
+- `terminal-link`
 - `dev-bootstrap-skill`
 - `dev-bootstrap-product`
 - `dev-bootstrap-mode`
@@ -154,6 +160,7 @@ Follow engine policy from:
 - `.agents/rules/architecture_rules.md`
 
 If an active product defines `products/<product_slug>/rules/`, follow that product rule layer in addition to engine rules.
+Toolkit products may omit `rules/` when they are intentionally modeled as self-contained installable skills.
 
 ---
 

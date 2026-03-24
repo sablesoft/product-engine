@@ -52,7 +52,7 @@ For persistent mode switches, keep the active engine mode and the active product
 
 Products live under [products](products).
 
-Each product may define:
+Each embedded product may define:
 
 - its own `product.yaml`
 - product-local `AGENTS.md`
@@ -62,6 +62,14 @@ Each product may define:
 - product-local `skills/`
 - product-local `state/runtime.yaml`
 - product-local `workspace/`
+
+Toolkit products instead may define:
+
+- `product.yaml`
+- `README.md`
+- one or more installable skill folders directly under the product root
+
+Toolkit products are meant to be shipped through `skill-installer`, so each skill folder should be self-contained and should not rely on shared sibling support folders outside that skill directory.
 
 ## Repository strategy
 
